@@ -7,14 +7,16 @@ function App() {
   const [newText, setNewText] = useState('');
 
   useEffect(() => {
-    axios.get('https://assignment-flax-sigma.vercel.app/api/header')
+    // axios.get('https://vercel.com/rohithmittus-projects/as-backend/api/header')
+    axios.get('http://localhost:4000/api/header')
       .then(response => setText(response.data.text))
       .catch(err => console.error(err));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://assignment-flax-sigma.vercel.app/api/header', { text: newText })
+    // axios.post('https://vercel.com/rohithmittus-projects/as-backend/api/header', { text: newText })
+    axios.post('http://localhost:4000/api/header', { text: newText })
       .then(() => setText(newText))
       .catch(err => console.error(err));
   };
